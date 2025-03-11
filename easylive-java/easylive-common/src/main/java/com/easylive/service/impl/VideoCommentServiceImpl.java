@@ -225,7 +225,7 @@ public class VideoCommentServiceImpl implements VideoCommentService {
 		if(videoInfo == null){
 			throw new BusinessException(ResponseCodeEnum.CODE_600);
 		}
-		if(!videoInfo.getUserId().equals(userId) && !comment.getUserId().equals(userId)){
+		if(userId!=null&&!videoInfo.getUserId().equals(userId) && !comment.getUserId().equals(userId)){
 			throw new BusinessException(ResponseCodeEnum.CODE_600);
 		}
 		videoCommentMapper.deleteByCommentId(commentId);

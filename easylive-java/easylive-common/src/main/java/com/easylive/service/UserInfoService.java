@@ -117,4 +117,6 @@ public interface UserInfoService {
 
 	UserCountInfoDto getUserCountInfo(String userId);
 
+	void changeUserStatus(String userId,Integer status);
+
 }

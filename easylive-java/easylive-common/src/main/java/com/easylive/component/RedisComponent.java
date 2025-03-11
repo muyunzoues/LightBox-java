@@ -112,6 +112,10 @@ public class RedisComponent {
         return sysSettingDto;
     }
 
+    public void saveSettingDto(SysSettingDto sysSettingDto){
+        redisUtils.set(Constants.REDIS_KEY_SYS_SETTING,sysSettingDto);
+    }
+
     public void updateVideoFileInfo(String userId,UploadFileDto fileDto){
         redisUtils.setex(Constants.REDIS_KEY_UPLOADING_FILE+userId+fileDto.getUploadId(),fileDto,Constants.REDIS_KEY_EXPIRES_ONE_DAY);
     }

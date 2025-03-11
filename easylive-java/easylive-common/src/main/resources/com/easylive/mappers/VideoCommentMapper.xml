@@ -112,6 +112,9 @@
 			<if test="query.postTimeEnd!= null and query.postTimeEnd!=''">
 				 <![CDATA[ and  v.post_time< date_sub(str_to_date(#{query.postTimeEnd},'%Y-%m-%d'),interval -1 day) ]]>
 			</if>
+			 <if test="query.videoNameFuzzy!=null and query.videoNameFuzzy!=''">
+				 and v.video_name like concat('%', #{query.videoNameFuzzy}, '%')
+			 </if>
 	 </where>
 	</sql>
 	<resultMap id="base_result_map_children" type="com.easylive.entity.po.VideoComment" extends="base_result_map">
